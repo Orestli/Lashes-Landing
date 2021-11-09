@@ -227,8 +227,20 @@ button {
   text-align: center;
   text-transform: uppercase;
   opacity: 0.06;
+  animation: blink_text 3s linear infinite;
 }
 
+@keyframes blink_text {
+  50% {
+    color: rgba(255, 255, 255, 0.06);
+  }
+  51% {
+    color: rgba(255, 255, 255, 0);
+  }
+  100% {
+    color: rgba(255, 255, 255, 0.06);
+  }
+}
 .coming_soon_container {
   max-width: 877px;
   margin: 0 auto;
@@ -326,13 +338,35 @@ button {
   height: 950px;
   color: white;
   background: #1A1A1A;
-  display: grid;
-  justify-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(484px, 1fr));
-  grid-column-gap: 373px;
+}
+
+.wrapper_02 {
+  width: 100%;
+  max-width: 1437px;
+  margin: 0 200px 0 auto;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
+@media (max-width: 1063px) {
+  .image_02 {
+    display: none;
+  }
+
+  .image_02_01 {
+    display: inline-block !important;
+  }
+
+  .wrapper_02 {
+    flex-direction: column !important;
+  }
+
+  .container_image_02 {
+    padding-top: 200px;
+    position: static !important;
+  }
+}
 .info_text_02 {
   width: 100%;
   max-width: 484px;
@@ -348,6 +382,10 @@ button {
   width: 100%;
   max-width: 580px;
   height: auto;
+}
+
+.image_02_01 {
+  display: none;
 }
 
 .container_03 {
@@ -408,7 +446,7 @@ button {
 .ellipse_vector {
   width: 100%;
   max-width: 541px;
-  height: 541px;
+  height: auto;
 }
 .ellipse_vector img {
   transition: 1.5s;
