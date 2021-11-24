@@ -65,7 +65,7 @@ const ascDesNone = (array, mode) => {
         case 'Des': {
             return array.sort((a, b) => b - a)
         }
-        case 'None': {
+        default: {
             return array
         }
     }
@@ -82,7 +82,7 @@ const sortNumbers = (array) => {
         check = false
 
         for (let i = 1; i < array.length; i++) {
-            if (array[i - 1] > array[i]) {
+            if(array[i - 1] > array[i]){
                 check = true
 
                 const tmp = array[i - 1]
@@ -95,7 +95,7 @@ const sortNumbers = (array) => {
     return array
 }
 
-//console.log(sortNumbers([[3], 4, [2], [5], 1, 6]))
+// console.log(sortNumbers([[3], 4, [2], [5], 1, 6]))
 
 // 11
 const hasHiddenFee = (array, number) => {
