@@ -95,7 +95,7 @@ const sortNumbers = (array) => {
     return array
 }
 
-console.log(sortNumbers([[3], 4, [2], [5], 1, 6]))
+//console.log(sortNumbers([[3], 4, [2], [5], 1, 6]))
 
 // 11
 const hasHiddenFee = (array, number) => {
