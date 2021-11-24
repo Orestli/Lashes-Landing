@@ -46,45 +46,75 @@ class Calculator {
 // calculator.divide(10, 5)
 
 // 8
-const keysAndValues = (obj) => [Object.keys(obj).sort(), Object.values(obj).sort()];
+const keysAndValues = (obj) => [Object.keys(obj).sort(), Object.values(obj).sort()]
 
 //console.log(keysAndValues({ a: "Apple", b: "Microsoft", c: "Google" }))
 
 // 9
 const ascDesNone = (array, mode) => {
-    if (mode === 'Asc') return array.sort()
-    if (mode === 'Des') return array.sort((a, b) => b - a)
-    if (mode === 'None') return array
+    // if (mode === 'Asc') return array.sort()
+    // if (mode === 'Des') return array.sort((a, b) => b - a)
+    // if (mode === 'None') return array
+
+    // or
+
+    switch (mode) {
+        case 'Asc': {
+            return array.sort()
+        }
+        case 'Des': {
+            return array.sort((a, b) => b - a)
+        }
+        case 'None': {
+            return array
+        }
+    }
 }
 
 // console.log(ascDesNone([4, 3, 2, 1], 'Asc'))
-// console.log(ascDesNone([7, 8, 11, 66], 'Des'))
-// console.log(ascDesNone([1, 2, 3, 4], 'None'))
 
 // 10
-const sortNumbers = (array) => array.sort()
+// const sortNumbers = (array) => array.sort()
+const sortNumbers = (array) => {
+    let check = true
 
-//console.log(sortNumbers([[3], 4, [2], [5], 1, 6]))
+    while (check) {
+        check = false
+
+        for (let i = 1; i < array.length; i++) {
+            if(array[i - 1] > array[i]){
+                check = true
+
+                const tmp = array[i - 1]
+                array[i - 1] = array[i]
+                array[i] = tmp
+            }
+        }
+    }
+
+    return array
+}
+
+console.log(sortNumbers([[3], 4, [2], [5], 1, 6]))
 
 // 11
-// todo: rework
 const hasHiddenFee = (array, number) => {
     const getNumber = (str) => parseInt(str.match(/\d+/))
 
-    let count = 0
-    array.map(key => count += getNumber(key))
+    array = array.map(key => getNumber(key))
+    const result = array.reduce((sum, current) => sum + current)
 
-    return Boolean(count < getNumber(number))
+    return result < getNumber(number)
 }
 
-//console.log(hasHiddenFee(["$ 1"], "$ 4"))
+//console.log(hasHiddenFee(["$2", "$4", "$1", "$8"], "$15"))
 
 // 12
 const trace = (array) => {
     let mainSum = 0
 
     for (let row = 0; row < array.length; row++) {
-        mainSum += array[row][row];
+        mainSum += array[row][row]
     }
 
     return mainSum
@@ -98,14 +128,14 @@ const trace = (array) => {
 // ]))
 
 // 13
-const removeSpecialCharacters = (str) => str.replace(/[&\/\\.!@#$%^*(, )]/g, '')
+const removeSpecialCharacters = (str) => str.replace(/[&\/\\.!@#$%^*(,)]/g, '')
 
 //console.log(removeSpecialCharacters('%fd76$fd(-)6GvKlO.'))
 
 // 14
-const mathExpr = (str) => /(^\d)()*([+\-*/])()*(\d$)/g.test(str)
+const mathExpr = (str) => /^\d+ ?[+\-\/*]{1} ?\d+$/g.test(str)
 
-//console.log(mathExpr('4*no'))
+//console.log(mathExpr('4*2'))
 
 // 15
 const pentagonal = (n) => (5 * Math.pow(n, 2) - 5 * n + 2) / 2
