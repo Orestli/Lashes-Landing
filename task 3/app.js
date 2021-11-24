@@ -82,7 +82,7 @@ const sortNumbers = (array) => {
         check = false
 
         for (let i = 1; i < array.length; i++) {
-            if(array[i - 1] > array[i]){
+            if (array[i - 1] > array[i]) {
                 check = true
 
                 const tmp = array[i - 1]
