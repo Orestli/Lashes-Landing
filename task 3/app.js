@@ -58,8 +58,6 @@ const ascDesNone = (array, mode) => {
 }
 
 // console.log(ascDesNone([4, 3, 2, 1], 'Asc'))
-// console.log(ascDesNone([7, 8, 11, 66], 'Des'))
-// console.log(ascDesNone([1, 2, 3, 4], 'None'))
 
 // 10
 const sortNumbers = (array) => array.sort()
@@ -67,7 +65,6 @@ const sortNumbers = (array) => array.sort()
 //console.log(sortNumbers([[3], 4, [2], [5], 1, 6]))
 
 // 11
-// todo: rework
 const hasHiddenFee = (array, number) => {
     const getNumber = (str) => parseInt(str.match(/\d+/))
 
@@ -84,7 +81,7 @@ const trace = (array) => {
     let mainSum = 0
 
     for (let row = 0; row < array.length; row++) {
-        mainSum += array[row][row];
+        mainSum += array[row][row]
     }
 
     return mainSum
